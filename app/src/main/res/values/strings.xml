@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Car Tracker</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="access_location_denied">Access location permission denied.</string>
+    <string name="no_location_found">No car found on any locations.</string>
+    <string name="no_available_found">No available car found on this schedule.</string>
+    <string name="car_on_trip">On Trip</string>
+    <string name="car_available">Available</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="choose_time">Choose Time</string>
+    <string name="choose_date">Choose Date</string>
+    <string name="check_availability">Check Availability</string>
+    <string name="start_time">Start Time</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_time">End Time</string>
+    <string name="end_date">End Date</string>
+    <string name="possible_drop_off">Possible Drop-off Location for Car #</string>
+    <string name="car_location">Car Location #</string>
+    <string name="availables">availables</string>
+    <string name="car_id">Car #</string>
+    <string name="show_all_car_status">Show All Car Status</string>
+</resources>
