@@ -129,14 +129,24 @@ class MainActivity : FragmentActivity(), OnMapReadyCallback, MainContract.View {
         val defaultLocation = Location("defaultLocation")
         defaultLocation.latitude = Constants.DEFAULT_LOCATION.LATITUDE
         defaultLocation.longitude = Constants.DEFAULT_LOCATION.LONGITUDE
+        var myLocation: Location? = null
         if (checkLocationPermission()) {
-            var myLocation: Location? = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+            myLocation = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER)
             if (myLocation == null) {
                 val criteria = Criteria()
                 criteria.accuracy = Criteria.ACCURACY_COARSE
-                val provider = lm.getBestProvider(criteria, true)
-                myLocation = lm.getLastKnownLocation(provider)
+                val providers = lm.getBestProvider(criteria, true)
+                var bestLocation: Location? = null
+                for (provider in providers) {
+                    val l = lm.getLastKnownLocation(providers) ?: continue
+                    if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                        bestLocation = l
+                    }
+                }
+                myLocation = bestLocation
             }
+        }
+        if (myLocation != null) {
             return myLocation
         }
         return defaultLocation;
